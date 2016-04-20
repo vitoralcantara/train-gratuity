@@ -1,10 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
 
-class Pair
-  attr_accessor :name, :value
-end
-
 class XML_Element_Count
 
 	def self.parse(xml_url)
