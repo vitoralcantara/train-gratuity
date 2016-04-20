@@ -5,13 +5,49 @@ class Pair
   attr_accessor :name, :value
 end
 
-class Pair_Array
+# class Pair_Array
 
-	def initialize
-		@pair_array = Array.new
+# 	def initialize
+# 		@pair_array = Array.new
+# 	end
+
+# 	def get_array
+# 		return array
+# end
+
+class XML_Element_Count
+
+	def self.parse(xml_url,category,child_type,exceptions)
+		xml_url = Nokogiri::XML(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))		
+		category = category
+		child_type = child_name
+		pair_array = Array.new		
+		doc = Nokogiri::XML(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
+		category_list = get_categories(doc,category)
+		category_list.each do |category|
+			if not exception(category,exceptions)
+				sum_children(pair_array,get_children_count(category,child_name))
+			end
+		return pair_array
+
+	private 
+
+	def self.get_categories(doc,category)
+		return doc.xpath("//" + category)
 	end
 
-	def add_or_update_element(name,count)
+	def self.get_children_count(category,child_name)
+			children = category.children
+			count = 0
+			children.each{|child|
+				if child.name == child_name
+					count++
+				end
+			}
+			return count
+	end
+
+	def self.sum_children(pair_array,count)
 		@pair_array.each { |pair_element|  
 			if name == pair_element.name
 				pair_element.value += count
@@ -24,13 +60,16 @@ class Pair_Array
 		@pair_array.push(new_pair)
 	end
 
-	def print_elements
-		@pair_array.each {|element|
-			puts element.name + ' ' + element.value.to_s
-		}
-	end
-
 end
+
+
+XML_Element_Count.parse("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml",
+	"SPEECH","LINE")
+
+
+
+
+
 
 pair_array = Pair_Array.new
 doc = Nokogiri::XML(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
