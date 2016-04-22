@@ -5,8 +5,9 @@ class Shakespeare_analyzer
 
   def self.parse(xml)
     pair_array = Hash.new(0)		
-    doc = Nokogiri::XML(xml)
-	# doc = Nokogiri::XML(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
+    doc = Nokogiri::XML(xml) do |config|
+ 		config.strict.nonet
+    end
     speeches = get_speeches(doc)
     speeches.each do |speech|
       children = speech.children
@@ -48,7 +49,10 @@ class Shakespeare_analyzer
     speakers.each do |speaker|
       hash_table[speaker] = hash_table[speaker] + count
     end
-  end			
+  end
+
+  private_class_method :get_speeches , :get_speakers , :get_line_count, 
+  :sum_children	
 
 end
 
@@ -62,7 +66,4 @@ class Pretty_printer
     end
 end
 
-
-table = Shakespeare_analyzer.parse(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
-Pretty_printer.pretty(table)
 
