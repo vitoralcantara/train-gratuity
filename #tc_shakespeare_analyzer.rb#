@@ -1,12 +1,11 @@
 require 'nokogiri'
 require 'open-uri'
 
-class Shakespeare_analyzer
-
-  def self.parse(xml)
+class XML_Element_Count
+  
+  def self.parse(xml_url)
     pair_array = Hash.new(0)		
-    doc = Nokogiri::XML(xml)
-	# doc = Nokogiri::XML(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
+    doc = Nokogiri::XML(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
     speeches = get_speeches(doc)
     speeches.each do |speech|
       children = speech.children
@@ -50,19 +49,14 @@ class Shakespeare_analyzer
     end
   end			
 
-end
-
-
-class Pretty_printer
-
-	def self.pretty(hash_table)
-    	hash_table.each do |key,value|
-      		puts "#{key} #{value}"
-      	end
+  def self.print_elements(hash_table)
+    hash_table.each do |key,value|
+      puts "#{key} #{value}"
     end
+  end
+
 end
 
-
-table = Shakespeare_analyzer.parse(open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
-Pretty_printer.pretty(table)
+pair_array = XML_Element_Count.parse("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml")
+XML_Element_Count.print_elements(pair_array)
 
