@@ -1,8 +1,11 @@
 require 'nokogiri'
 require 'open-uri'
 
+#This class executes the algorithm that analyzes the shakespeare tale
+#or any xml with same pattern
 class Shakespeare_analyzer
 
+  # Parses xml sent as input
   def self.parse(xml)
     pair_array = Hash.new(0)		
     doc = Nokogiri::XML(xml) do |config|
@@ -56,9 +59,10 @@ class Shakespeare_analyzer
 
 end
 
-
+#Class used for pretty prints
 class Pretty_printer
 
+	#pretty prints hash tables
 	def self.pretty(hash_table)
     	hash_table.each do |key,value|
       		puts "#{key} #{value}"
