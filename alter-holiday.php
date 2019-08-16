@@ -23,7 +23,7 @@
 
 		<label class="pb-3">Alterando esta��o <kbd class="bg-dark">Alecrim I</kbd>.</label>
 		
-		<form action="stations.php">
+		<form action="bens-confirmar.php">
 			<div class="form-group row">
 				<label for="staticEmail" class="col-sm-3 col-form-label">Novo
 					nome:</label>

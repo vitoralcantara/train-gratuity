@@ -1,5 +1,7 @@
 @charset "ISO-8859-1";
 
+.row-bottom-margin { margin-bottom:10px; }
+
 .nav-link {
 	font-size: larger;
 }

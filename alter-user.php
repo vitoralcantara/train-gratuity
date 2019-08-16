@@ -43,7 +43,7 @@
 							<span class="col-sm-3">
 								<button class="btn btn-primary" type="submit">Salvar</button>
 							</span> <span class="col-sm-9">
-								<button onClick="javascript:history.go(-1)" class="btn btn-danger" href="users.php">Cancelar</button>
+								<button onclick="location.href='users.php';" class="btn btn-danger" href="users.php">Cancelar</button>
 							</span>
 						</div>
 					</form>

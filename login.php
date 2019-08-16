@@ -17,7 +17,7 @@
 
 			
 			<!-- 	<p class="text-success text-center">Mensagem de sucesso</p> -->
-			<form action="timetable.php">
+			<form action="index.php">
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-prepend">

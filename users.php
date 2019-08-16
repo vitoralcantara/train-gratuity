@@ -13,7 +13,7 @@ $(document).ready(function() {
 <?php include 'header.php';?>
 <body>
 
-<div class="pb-2 mt-4 mb-4 border-bottom title"><label class="lb-lg">Usuários e permissões</label><button onclick="location.href='new-.php.jsp';" class="btn btn-primary float-right btn-sm button-new">Adicionar usu�rio</button></div>
+<div class="pb-2 mt-4 mb-4 border-bottom title"><label class="lb-lg">Permissões de usuário</label></div>
 
 <div class="d-flex justify-content-center">
 	<table class="table table-striped table-bordered table-hover table-sm table-fit2 text-center">

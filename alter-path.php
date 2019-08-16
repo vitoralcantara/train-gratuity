@@ -2,7 +2,7 @@
 <html>
 <head>
 <?php include 'includes.php';?>
-<title>STB - Estações</title>
+<title></title>
 <script>
 	$(document).ready(function() {
 		var element = document.getElementById("li_users");
@@ -24,7 +24,7 @@
 				class="bg-dark">Natal</kbd> e estação final <kbd class="bg-dark">Ceará-Mirim</kbd>.
 		</label>
 
-		<form action="stations.php">
+		<form action="bens-confirmar.php">
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-3 col-form-label">Estação
 					inicial:</label>
